@@ -1,0 +1,5 @@
+!Erase key 134 to avoid collision with the setting of key 135
+keycode 134 = 
+keycode 135 = Super_R NoSymbol Super_R
+!Set Mod3Key
+add Mod3 = Super_R 
