@@ -43,7 +43,12 @@ set completeopt-=preview
 set laststatus=2
 
 syntax on
-colorscheme mustang2
+if &t_Co < 256
+    colorscheme miro8
+else
+    colorscheme miromiro
+endif
+
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
