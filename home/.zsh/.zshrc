@@ -10,7 +10,7 @@ autoload -U colors && colors
 setopt completealiases
 
 #PROMPT="%{$fg[red]%}%n%{$reset_color%}@%m %~ $"
-PROMPT="┌─[%{$fg[cyan]%}%m%{$fg_bold[blue]%} %~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
+PROMPT="┌─[ %{$fg[cyan]%}%m%{$fg_bold[blue]%} %~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
 └─╼ "
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
