@@ -47,3 +47,4 @@ function zle-line-init zle-keymap-select {
     RPS2=$RPS1
     zle reset-prompt
 }
+PATH="`ruby -rubygems -e 'puts Gem.user_dir'`/bin:$PATH"

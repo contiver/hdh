@@ -21,6 +21,8 @@ Bundle 'tpope/vim-commentary.git'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'scrooloose/syntastic.git'
+Bundle 'kana/vim-filetype-haskell'
 
 "----------------
 filetype plugin indent on     " required
@@ -42,6 +44,7 @@ set completeopt-=preview
 "Airline settings
 set laststatus=2
 
+" Colorscheme
 syntax on
 if &t_Co < 256
     colorscheme miro8
@@ -61,10 +64,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-set ts=4 sw=4 et
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 hi IndentGuidesOdd ctermbg=gray
@@ -92,3 +93,17 @@ set visualbell
 " html settings
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 let g:html_indent_inctags = "html,body,head,tbody"
+let g:syntastic_html_tidy_exec = "/usr/bin/tidy"
+
+" Haskell settings
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2
+
+" Function to remove trailing spaces on save
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
