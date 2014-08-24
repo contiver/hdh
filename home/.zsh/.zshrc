@@ -36,10 +36,10 @@ alias pong="ping -c 3 www.google.com"
 export PATH="${PATH}:/home/contiver/builds/idea-IC-135.690/bin:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/"
 
 # Execute ls after any cd
-function chpwd() {
-    emulate -L zsh
-    ls
-}
+#function chpwd() {
+#    emulate -L zsh
+#    ls
+#}
 
 # Show vi mode
 function zle-line-init zle-keymap-select {

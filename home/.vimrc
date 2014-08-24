@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 call vundle#rc()
 " " alternatively, pass a path where Vundle should install plugins
 " "let path = '~/some/path/here'
@@ -63,6 +63,8 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set encoding=utf-8
+set fileencoding=utf-8
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
@@ -107,3 +109,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+" LaTeX
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
