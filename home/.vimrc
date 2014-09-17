@@ -36,6 +36,7 @@ filetype plugin indent on     " required
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
 
+filetype plugin on
 let g:clang_use_library = 1
 let g:clang_complete_auto = 1
 let g:clang_auto_select = 1
@@ -43,6 +44,7 @@ set completeopt-=preview
 
 "Airline settings
 set laststatus=2
+let g:airline_powerline_fonts=1
 
 " Colorscheme
 syntax on
@@ -50,6 +52,13 @@ if &t_Co < 256
     colorscheme miro8
 else
     colorscheme miromiro
+endif
+
+" Disable Background Color Erase (BCE) so that color schemes
+" render properly when inside 256-color tmux and GNU screen.
+" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+if &term =~ '256color'
+    set t_ut=
 endif
 
 nnoremap <C-S-tab> :tabprevious<CR>
@@ -70,16 +79,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
-hi IndentGuidesOdd ctermbg=gray
-hi IndentGuidesEven ctermbg=darkgray
-
-
-" Disable Background Color Erase (BCE) so that color schemes
-" render properly when inside 256-color tmux and GNU screen.
-" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-if &term =~ '256color'
-    set t_ut=
-endif
+hi IndentGuidesOdd ctermbg=darkgray
+hi IndentGuidesEven ctermbg=black
 
 set noswapfile
 set showtabline=2
@@ -89,16 +90,9 @@ set hidden
 set wildmenu
 set showcmd
 set hlsearch
+set incsearch
 set autoindent
 set visualbell
-
-" html settings
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:syntastic_html_tidy_exec = "/usr/bin/tidy"
-
-" Haskell settings
-autocmd FileType sh setlocal shiftwidth=2 tabstop=2
 
 " Function to remove trailing spaces on save
 fun! <SID>StripTrailingWhitespaces()
