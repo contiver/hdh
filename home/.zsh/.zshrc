@@ -15,7 +15,7 @@ PROMPT="┌─[ %{$fg[cyan]%}%m%{$fg_bold[blue]%} %~ %{$fg_no_bold[yellow]%}%(0?
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
-# History options 
+# History options
 export HISTFILE=~/.histfile
 export HISTSIZE=10000
 export SAVEHIST=$((HISTSIZE/2))
@@ -33,13 +33,7 @@ alias grep='grep --color=auto'
 alias cd2='cd ../../'
 alias pong="ping -c 3 www.google.com"
 
-export PATH="${PATH}:/home/contiver/builds/idea-IC-135.690/bin:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/"
-
-# Execute ls after any cd
-#function chpwd() {
-#    emulate -L zsh
-#    ls
-#}
+export PATH="${PATH}:`ruby -rubygems -e 'puts Gem.user_dir'`/bin:/home/contiver/builds/idea-IC-135.690/bin:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/"
 
 # Show vi mode
 function zle-line-init zle-keymap-select {
@@ -47,4 +41,3 @@ function zle-line-init zle-keymap-select {
     RPS2=$RPS1
     zle reset-prompt
 }
-PATH="`ruby -rubygems -e 'puts Gem.user_dir'`/bin:$PATH"
